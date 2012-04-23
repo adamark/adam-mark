@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  image_uid: MyString
+  image_name: MyString
+  project_id: 1
+  post_id: 1
+  url: MyString
+  caption: MyString
+  main: false
+
+two:
+  image_uid: MyString
+  image_name: MyString
+  project_id: 1
+  post_id: 1
+  url: MyString
+  caption: MyString
+  main: false
