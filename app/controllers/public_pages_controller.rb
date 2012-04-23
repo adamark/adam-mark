@@ -1,0 +1,2 @@
+class PublicPagesController < ApplicationController
+end

@@ -2,18 +2,21 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'pg'
+
 gem 'thin'
 
-# Gems used only for assets and not required
-# in production environments by default.
+group :development do
+  gem 'guard-livereload'
+end
+
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  # gem 'haml_coffee_assets'    = future commit
+  # gem 'execjs'                = future commit
+  gem 'bourbon'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
@@ -21,18 +24,33 @@ group :assets do
 end
 
 gem 'jquery-rails'
+# gem 'rails-backbone'    = future commit
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# Pagination
+# gem 'kaminari'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+#Syntax Highlighting on posts
+gem 'redcarpet'
+gem "pygments.rb", "~> 0.2.12"
 
-# Use unicorn as the web server
-# gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+gem 'haml-rails', '0.3.4'
+gem 'gravatar_image_tag'
+gem 'simple_form'
+
+# Image Uploading
+gem 'fog'
+gem 'dragonfly', '~>0.9.10'
+gem 'rack-cache', :require => 'rack/cache'
+
+# Admin
+gem 'bcrypt-ruby', '~> 3.0.1'
+
+
+#SEO
+gem 'friendly_id', '4.0.1'
+gem 'acts-as-taggable-on', '~> 2.2.2'
+
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
