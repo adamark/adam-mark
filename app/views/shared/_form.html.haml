@@ -1,0 +1,27 @@
+= simple_form_for( form, :html => {:multipart => true, :class => 'form-vertical' }) do |f|
+  / = render 'error_messages', object: f.object
+  - id = f.object.id.present? ? f.object.id : 1
+  .span4
+    = f.input :title, :input_html => { :class => "span4" }
+    = f.input :body, :input_html => { :class => "span4" }
+    = f.input :kind, :collection => [ "Web", "Photo", "Video", "Art"], :input_html => { :class => "span4" } if current_page_is_a_project?(id)
+    = f.input :tag_list, :input_html => { :class => "span4" }
+    = f.input :publish, :as => :boolean 
+    = f.input :gallery, :as => :boolean if current_page_is_a_project?(id)
+  .span4
+    = f.fields_for :assets do |asset|
+      .asset-input.span1.well
+        - a = asset.object.image
+        = image_tag(a.thumb('80x80#').url)
+        = asset.text_field :caption, :placeholder => 'caption', class: 'input-caption'
+        = asset.label :main
+        = asset.check_box :main
+        = asset.label :_destroy, "Delete"
+        = asset.check_box :_destroy
+        
+  .form-actions.span8
+    = f.button :submit, :class => 'btn-primary'
+    = submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger"
+
+
+    

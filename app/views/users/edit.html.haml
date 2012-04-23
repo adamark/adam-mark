@@ -1,0 +1,17 @@
+%h1 Me
+= simple_form_for(@user, :html => { :multipart => true, :class => 'form-vertical' }) do |f|
+  .span4
+    = f.input :name, :input_html => { :class => "span4" }
+    = f.input :email, :input_html => { :class => "span4" }
+    = f.input :bio, :input_html => { :class => "span4" }
+    = f.input :handle, :input_html => { :class => "span4" }
+    = f.input :password, :input_html => { :class => "span4" }
+    = f.input :password_confirmation, :input_html => { :class => "span4" }
+    .control-group.optional.span4
+      %label.control-label Avatar
+      .controls
+        = gravatar_for(@user)
+      .controls
+        = link_to "Change this", "http://en.gravatar.com/", target: "_blank"
+  .form-actions.span12
+    = f.button :submit, :class => 'btn-primary'

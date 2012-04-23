@@ -1,0 +1,10 @@
+.navbar
+  .navbar-inner
+    .container-topbar
+      %ul.nav
+        %li= link_to "Github"
+        %li.divider-vertical
+        %li= link_to "Twitter"
+      %form.navbar-search
+        %input.search-query{ :type => "text", :placeholder => "Search"}
+      = render 'layouts/admin_menu' # if current_user?

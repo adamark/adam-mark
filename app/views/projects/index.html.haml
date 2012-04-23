@@ -1,0 +1,22 @@
+%h1 Projects
+= link_to icon("pencil", "New Project"), new_project_url, class: "btn btn-primary"
+%table.table.table-striped
+  %thead
+    %tr
+      %th Title
+      %th Images
+      %th Kind
+      %th Gallery?
+      %th Published?
+      %th Edit
+      %th Delete
+  %tbody
+    - @projects.each do |p|
+      %tr
+        %td= p.title
+        %td= p.assets.present? ? p.assets.count : "None"
+        %td= p.kind.present? ? p.kind : "None"
+        %td= p.gallery ? "Yes" : "No"
+        %td= p.publish ? "Yes" : "No"
+        %td= link_to icon("edit", "Edit"), edit_project_url(p.id), class: "btn btn-warning"
+        %td= link_to icon("trash", "Delete project"), project_url(p.id), method: :delete, confirm: "Are you sure you\'d like to delete this project?", disable_with: "Deleting...", class: "btn btn-danger"

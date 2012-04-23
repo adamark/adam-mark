@@ -1,0 +1,17 @@
+.btn-group.pull-right
+  %a.btn.btn-info{:href => "#"}
+    = icon("cogs", "Admin")
+  %a.btn.btn-info.dropdown-toggle{"data-toggle" => "dropdown", :href => "#admin-menu"}
+    %span.caret
+  %ul.dropdown-menu
+    = content_tag(:li, link_to(icon("file", "Posts"), posts_url))
+    = content_tag(:li, link_to(icon("flag", "Projects"), projects_url))
+    = content_tag(:li, link_to(icon("flag", "Upload"), assets_url))
+    = content_tag(:li, link_to(icon("flag", "About"), about_url))
+    = content_tag(:li, link_to(icon("flag", "Contact"), contact_url))
+    = content_tag(:li, link_to(icon("user", "My Profile"), edit_user_url(1)))
+    %li.divider
+    = content_tag(:li, link_to(icon("signout", "Logout"), logout_url))
+    
+    :javascript
+      $('.dropdown-toggle').dropdown()

@@ -1,0 +1,25 @@
+.span7
+  #slideshow
+    .slide
+.span4
+  #thumbs
+    %ul.thumbs.unstyled
+      - @project.assets.each do |p|
+        %li
+          %a{:href => p.image.remote_url, :class => 'thumb'}
+            = image_tag(p.image.thumb('80x80#').url, class: 'box')
+          .caption= p.caption
+  %h1= @project.title
+  %p= @project.body
+  .captions
+  
+:javascript
+  $(document).ready(function() {
+    var gallery = $('#thumbs').galleriffic({
+      numThumbs:    20,
+      imageContainerSel:  '.slide',
+      captionContainerSel: '.captions',
+      renderSSControls:   false,
+      renderNavControls:  false,
+    })
+  });

@@ -1,0 +1,16 @@
+.quadway
+  %h2 Web
+  - @web.each do |web|
+    %h3= link_to web.title, project_url(web)
+.quadway
+  %h2 Photography
+  - @photo.each do |photo|
+    %h3= link_to photo.title, project_url(photo)
+.quadway 
+  %h2 Video
+  - @video.each do |video|
+    %h3= link_to video.title, project_url(video)
+.quadway 
+  %h2 Art
+  - @art.each do |art|
+    %h3= link_to art.title, project_url(art)

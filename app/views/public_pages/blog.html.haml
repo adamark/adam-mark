@@ -1,0 +1,17 @@
+#inner-content
+  = paginate @blogs
+  - @blogs.each do |b|
+    %h1.title= b.title
+    = preserve markdown(b.body) if b.body.present?
+    .metadata
+      %dl.dl-horizontal
+        %dt Posted On: 
+        %dd  
+          %a{href: "#{post_url(b.id)}"}
+            %time= b.created_at.strftime("%B %d, %Y")
+    .metadata
+      %dl.dl-horizontal
+        %dt Tagged In: 
+        %dd
+          - b.tag_list.each do |tag|
+            = link_to tag

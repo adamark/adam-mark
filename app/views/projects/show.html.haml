@@ -1,0 +1,4 @@
+= render 'web' if @project.kind == "Web"
+= render 'photo' if @project.kind == "Photo"
+= render 'video' if @project.kind == "Video"
+= render 'art' if @project.kind == "Art"
