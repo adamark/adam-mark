@@ -1,0 +1,21 @@
+common: &common
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: localhost
+  # username:
+  # password: 
+  # template: template0
+  # port: 5432
+
+development:
+  <<: *common
+  database: my_website_development
+
+test:
+  <<: *common
+  database: my_website_test
+
+production:
+  <<: *common
+  database: my_website_production
