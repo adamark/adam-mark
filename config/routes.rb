@@ -1,4 +1,19 @@
 MyWebsite::Application.routes.draw do
+  
+  
+  resources :posts, :projects, :assets
+  resources :users, :only => [:edit, :update]
+  get '/about' => 'public_pages#about', :as => :about
+  get '/contact' => 'public_pages#contact', :as => :contact
+  get '/work' => 'public_pages#projects', :as => :work
+  
+  root :to => 'public_pages#blog'
+
+  match 'login' => 'sessions#new', :as => :login
+  match 'logout' => 'sessions#destroy', :as => :logout
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
